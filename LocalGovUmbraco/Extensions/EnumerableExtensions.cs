@@ -132,6 +132,17 @@ namespace LocalGovUmbraco.Extensions
     }
 
     /// <summary>
+    /// Returns true if any strings in the other collection exist in this collection, allowing for a custom <see cref="StringComparer"/>. 
+    /// </summary>
+    /// 
+    /// <param name="source">The first <see cref="IEnumerable{string}"/>.</param>
+    /// <param name="values">The second <see cref="IEnumerable{string}"/>.</param>
+    /// <param name="comparer">The <see cref="StringComparer"/> to use.</param>
+    /// 
+    /// <returns><see langword="true"/> if any of the values were found in the source <see cref="IEnumerable{string}"/>, <see langword="false"/> otherwise.</returns>
+    public static bool ContainsAny(this IEnumerable<string> source, IEnumerable<string> values, StringComparer comparer) => !values.Where(x => !source.Contains(x, comparer)).Any();
+
+    /// <summary>
     /// Returns true if all strings in the other collection exist in this collection, allowing for a custom <see cref="StringComparer"/>. 
     /// </summary>
     /// 
