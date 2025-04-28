@@ -1,18 +1,31 @@
 @inherits UmbracoViewPage<Video>
+@using System.Web;
+@using System.Collections.Specialized;
 @if (!Model.VideoUrl.IsNullOrWhiteSpace())
 {
   try
   {
+    Uri rawUrl = new Uri(Model.VideoUrl);
+    NameValueCollection rawQuery = HttpUtility.ParseQueryString(rawUrl.Query);
+
     Uri embedUrl = new(new Uri(Model.VideoUrl).GetLeftPart(UriPartial.Path));
+    NameValueCollection embedQuery = HttpUtility.ParseQueryString("");
 
     if (embedUrl.Host.Contains("youtube", System.StringComparison.CurrentCultureIgnoreCase))
     {
-      embedUrl = embedUrl.SetQuery(new() { { "modestbranding", "1" }, { "rel", "0" }, });
+      embedQuery.Add("modestbranding", "1");
+      embedQuery.Add("rel", "0");
     }
     else if (embedUrl.Host.Contains("vimeo", System.StringComparison.CurrentCultureIgnoreCase))
     {
-      embedUrl = embedUrl.SetQuery(new() { { "byline", "0" }, { "dnt", "1" }, });
+      embedQuery.Add("byline", "0");
+      embedQuery.Add("dnt", "1");
+      if (rawQuery.GetValues("h")?.FirstOrDefault() is string hash && !hash.IsNullOrWhiteSpace())
+      {
+        embedQuery.Add("h", hash);
+      }
     }
+    embedUrl = embedUrl.SetQuery(embedQuery);
     <iframe id="video-@Guid.NewGuid()" preload="none" src="@Html.Raw(embedUrl)" name="Embedded Video" class="video"></iframe>
   }
   catch (Exception)
