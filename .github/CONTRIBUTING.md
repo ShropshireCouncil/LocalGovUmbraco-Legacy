@@ -40,7 +40,7 @@ applies to all changes to documentation, code, binary files, etc.
 
 ## Accessibility
 
-All public facing content and functionality should adhere to WCAG 2.1 AA at
+All public facing content and functionality should adhere to WCAG 2.2 AA at
 minimum. While we note that to a large extent this is something that depends on
 content management, nothing that is committed to the shared codebase should
-prevent users adhering to WCAG 2.1 AA.
+prevent users adhering to WCAG 2.2 AA.
