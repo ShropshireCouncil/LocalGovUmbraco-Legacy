@@ -4,7 +4,6 @@ namespace LocalGovUmbraco
   {
     public static void Main(string[] args)
       => Host.CreateDefaultBuilder(args)
-        .ConfigureAppConfiguration(config => config.AddJsonFile("appsettings.local.json", optional: true, reloadOnChange: true))
         .ConfigureUmbracoDefaults()
         .ConfigureWebHostDefaults(webBuilder =>
         {
