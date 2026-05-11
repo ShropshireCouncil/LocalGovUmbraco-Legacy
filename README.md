@@ -4,13 +4,11 @@ LocalGov Umbraco is a website "starter kit" built on top of [Umbraco](https://um
 
 In line with the [Local Digital Declaration](https://www.localdigital.gov.uk/declaration/), we belive that open collaboration allows councils to deliver a better digital experience for their citizens while saving time and money by avoiding duplicating the effort of prior development.
 
-## Roadmap
+## DEPRECATION NOTICE
 
-See the [open issues](https://github.com/ShropshireCouncil/LocalGovUmbraco/issues) for a list of proposed features (and known issues).
+Due to the breaking changes between Umbraco 13 and 14, this project has been deprecated in favour of a complete rebuild on the newest Umbraco version.
 
-- [Top Feature Requests](https://github.com/ShropshireCouncil/LocalGovUmbraco/issues?q=label%3Aenhancement+is%3Aopen+sort%3Areactions-%2B1-desc) (Add your votes using the 👍 reaction)
-- [Top Bugs](https://github.com/ShropshireCouncil/LocalGovUmbraco/issues?q=is%3Aissue+is%3Aopen+label%3Abug+sort%3Areactions-%2B1-desc) (Add your votes using the 👍 reaction)
-- [Newest Bugs](https://github.com/ShropshireCouncil/LocalGovUmbraco/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
+The new version aims to be leaner, taking what we've learnt from this version and restructuring the components.
 
 ## Support
 
